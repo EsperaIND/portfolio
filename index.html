@@ -47,6 +47,86 @@
   <link rel="stylesheet" href="css/owl.theme.default.min.css" />
   <link rel="stylesheet" href="css/tooplate-style.css" />
 
+  <!-- ============ SOLUTION RECOMMANDÉE : object-fit: cover ============ -->
+  <style>
+    /* ⭐ LA SOLUTION MAGIQUE POUR DES IMAGES UNIFORMES ET NETTES */
+    .project .owl-carousel .item {
+      height: 400px;              /* Hauteur fixe pour toutes les images */
+      overflow: hidden;           /* Cache ce qui dépasse */
+      border-radius: 12px;        /* Coins arrondis (optionnel) */
+      background-color: #f8f9fa;  /* Fond en cas d'erreur de chargement */
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .project .owl-carousel .item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;          /* ⭐ LA CLÉ : remplit le cadre sans déformer */
+      object-position: center;    /* Centre l'image automatiquement */
+      transition: transform 0.3s ease;
+      /* Anti-flou et optimisation du rendu */
+      image-rendering: auto;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+
+    /* Effet de zoom au survol (optionnel) */
+    .project .owl-carousel .item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* ===== RESPONSIVE : Hauteurs adaptées sur mobile ===== */
+    @media (max-width: 768px) {
+      .project .owl-carousel .item {
+        height: 280px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .project .owl-carousel .item {
+        height: 220px;
+      }
+    }
+
+    /* ===== OPTION : si vous préférez voir l'image entière ===== */
+    /* Pour des images où tout doit être visible, remplacez cover par contain */
+    /*
+    .project .owl-carousel .item img {
+      object-fit: contain;
+    }
+    */
+
+    /* ===== FLÈCHES DE NAVIGATION STYLISÉES ===== */
+    .owl-theme .owl-nav [class*='owl-'] {
+      background: rgba(255, 255, 255, 0.9) !important;
+      color: #333 !important;
+      width: 40px;
+      height: 40px;
+      border-radius: 50% !important;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px !important;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+      transition: all 0.3s ease;
+    }
+    .owl-theme .owl-nav [class*='owl-']:hover {
+      background: #fff !important;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+      transform: scale(1.1);
+    }
+
+    /* ===== POINTS INDICATEURS ===== */
+    .owl-theme .owl-dots .owl-dot span {
+      background: #ccc !important;
+      transition: all 0.3s ease;
+    }
+    .owl-theme .owl-dots .owl-dot.active span {
+      background: #6c63ff !important;
+      transform: scale(1.2);
+    }
+  </style>
+
   <!-- ============ SCHEMA.ORG ============ -->
   <script type="application/ld+json">
   {
@@ -144,7 +224,7 @@
     </div>
   </section>
 
-  <!-- ============ PROJECTS (CAROUSSEL CORRIGÉ) ============ -->
+  <!-- ============ PROJECTS ============ -->
   <section class="project py-5" id="project">
     <div class="container">
       <div class="row">
@@ -159,85 +239,72 @@
             <!-- Item 1 -->
             <div class="item">
               <div class="project-info">
-                <img src="images/project/sary.png" class="img-fluid" alt="Projet design - Espera Portfolio" />
+                <img src="images/project/sary.png" class="img-fluid" alt="Projet design - Espera Portfolio" loading="lazy" />
               </div>
             </div>
 
-            <!-- Item 3 -->
+            <!-- Item 2 -->
             <div class="item">
               <div class="project-info">
-                <img src="images/project/12.jpeg" class="img-fluid" alt="Projet design - Espera Portfolio" />
+                <img src="images/project/12.jpeg" class="img-fluid" alt="Projet design - Espera Portfolio" loading="lazy" />
               </div>
             </div>
-           <!-- Item 2 -->
-            <div class="item">
-              <div class="project-info">
-                <img src="images/projets/4.jpg" class="img-fluid" alt="Projet communication - Indriantsilazo Espera" />
-              </div>
-            </div>
+
             <!-- Item 3-->
             <div class="item">
               <div class="project-info">
-                <img src="images/project/6.png" class="img-fluid" alt="Projet Community Management - Espera" />
+                <img src="images/projets/4.jpg" class="img-fluid" alt="Projet communication - Indriantsilazo Espera" loading="lazy" />
               </div>
             </div>
 
-             <!-- Item 4 -->
+            <!-- Item 4-->
             <div class="item">
               <div class="project-info">
-                <img src="images/project/7.jpg" class="img-fluid" alt="Projet design - Espera Portfolio" />
+                <img src="images/project/6.png" class="img-fluid" alt="Projet Community Management - Espera" loading="lazy" />
               </div>
             </div>
+
             <!-- Item 5 -->
             <div class="item">
               <div class="project-info">
-                <img src="images/project/5.png" class="img-fluid" alt="Projet relation publique - Indriantsilazo" />
+                <img src="images/project/7.jpg" class="img-fluid" alt="Projet design - Espera Portfolio" loading="lazy" />
               </div>
             </div>
 
             <!-- Item 6 -->
             <div class="item">
               <div class="project-info">
-                <img src="images/project/1.png" class="img-fluid" alt="Projet communication digitale - Espera" />
+                <img src="images/project/5.png" class="img-fluid" alt="Projet relation publique - Indriantsilazo" loading="lazy" />
               </div>
             </div>
 
             <!-- Item 7 -->
             <div class="item">
               <div class="project-info">
-                <img src="images/project/11.jpg" class="img-fluid" alt="Projet design - Espera Portfolio" />
+                <img src="images/project/1.png" class="img-fluid" alt="Projet communication digitale - Espera" loading="lazy" />
               </div>
             </div>
 
             <!-- Item 8 -->
             <div class="item">
               <div class="project-info">
-                <img src="images/project/13.jpg" class="img-fluid" alt="Projet design - Espera Portfolio" />
+                <img src="images/project/11.jpg" class="img-fluid" alt="Projet design - Espera Portfolio" loading="lazy" />
               </div>
             </div>
 
             <!-- Item 9 -->
             <div class="item">
               <div class="project-info">
-                <img src="images/project/6.png" class="img-fluid" alt="Projet design - Espera Portfolio" />
+                <img src="images/project/13.png" class="img-fluid" alt="Projet design - Espera Portfolio" loading="lazy" />
               </div>
             </div>
 
             <!-- Item 10 -->
             <div class="item">
               <div class="project-info">
-                <img src="images/project/7.jpg" class="img-fluid" alt="Projet design - Espera Portfolio" />
+                <img src="images/project/10.jpg" class="img-fluid" alt="Projet design - Espera Portfolio" loading="lazy" />
               </div>
             </div>
-
-            <!-- Item 11 -->
-            <div class="item">
-              <div class="project-info">
-                <img src="images/project/10.jpg" class="img-fluid" alt="Projet design - Espera Portfolio" />
-              </div>
-            </div>
-
-           
 
           </div> <!-- Fin owl-carousel -->
         </div>
